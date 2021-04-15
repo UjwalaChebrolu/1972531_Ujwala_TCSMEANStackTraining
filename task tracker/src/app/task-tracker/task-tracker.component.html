@@ -1,0 +1,96 @@
+<div>
+    <h1 style="text-align: center;" class="whiteTextHeading">Task Tracker</h1>
+    <div class="addSpacing"></div>
+
+    <!-- Template Driven Form-->
+    <div class="container" class="col-sm containers">
+        <form #taskRef="ngForm" (ngSubmit)="storeNewTask(taskRef.value)">
+
+            <mat-form-field class="container"> 
+
+                <mat-label>
+                    Name
+                </mat-label>
+
+                <!--Take Name Input-->
+                <span class="fieldColor">
+                <input matInput type="text " name="name" style=" color: Black"ngModel/>
+                 </span>
+            </mat-form-field>
+            <mat-form-field class="container">
+                <mat-label >
+                    Id
+                </mat-label>
+
+                <!--Take Employee ID Input-->
+                <span class="fieldColor ">
+                    <input matInput type="text " name="employeeId" style=" color: black" ngModel/>
+                </span>
+
+            </mat-form-field>
+            <mat-form-field class="container">
+                <mat-label>
+                    Task
+                </mat-label>
+
+                <!--Take Task Name Input-->
+                <span class="fieldColor ">
+                    <textarea matInput type="text" name="taskName" style=" color:black" ngModel></textarea>
+                </span>
+
+            </mat-form-field>
+            <mat-form-field class="container">
+                <mat-label>
+                    Deadline
+                </mat-label>
+
+                <!--Take Deadline Date Input-->
+                <span class="fieldColor ">
+                    <input matInput type="date" name="deadline"style=" color: black" ngModel/> 
+                </span>
+
+            </mat-form-field>
+            <div class="container">
+            <button mat-stroked-button type="submit " style="background-color: lavender; ">Add Task</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="addSpacing"></div>
+
+    <br/><br/><br/>
+
+
+    <table mat-table [dataSource]="tasks" class="mat-elevation-z8">
+
+
+        <!-- Employee Id Column -->
+        <ng-container matColumnDef="Employee Id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Task Name Column -->
+        <ng-container matColumnDef="Task">
+            <th mat-header-cell *matHeaderCellDef> Task </th>
+            <td mat-cell *matCellDef="let element"> {{element.taskName}} </td>
+        </ng-container>
+
+        <!-- Deadline Column -->
+        <ng-container matColumnDef="Deadline">
+            <th mat-header-cell *matHeaderCellDef> Deadline </th>
+            <td mat-cell *matCellDef="let element"> {{element.deadline}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+

@@ -1,0 +1,17 @@
+.fieldColor {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+  }
+.addSpacing {
+    width: 10px;
+    height: auto;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+}
