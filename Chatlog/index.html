@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "/socket.io/socket.io.js"></script>
+    <script type = "text/JavaScript">
+        var socket = io()
+        function fun(){
+           var name= document.getElementById("name").value
+           var msg=document.getElementById("msg").value
+           //socket.emit("name",{Name});
+           //socket.emit("message",{You})
+           var output = '{"name":"'+ name + '", "message":"' + msg +'"}';
+            socket.emit("chatlog", output);
+       }
+    </script>
+</head>
+<body>
+    <form>
+    <label>Name</label>
+      <input type="text" id="name"/><br/>
+      <label>Message</label>
+      <input type="text" id="msg"><br/>
+      <input type="submit" value="submit" onclick="fun()"/>
+      <input type="reset" value="reset">
+    </form>
+</body>
+</html>
